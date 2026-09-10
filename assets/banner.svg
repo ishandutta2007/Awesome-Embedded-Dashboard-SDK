@@ -1,0 +1,416 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14" />
+      <stop offset="40%" stop-color="#0B132B" />
+      <stop offset="80%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <!-- Ambient Glow Gradients -->
+    <radialGradient id="glow-cyan" cx="20%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow-purple" cx="80%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow-emerald" cx="50%" cy="90%" r="45%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Text & Title Gradients -->
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="45%" stop-color="#818CF8" />
+      <stop offset="100%" stop-color="#C084FC" />
+    </linearGradient>
+
+    <linearGradient id="tag-badge-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(56, 189, 248, 0.15)" />
+      <stop offset="100%" stop-color="rgba(168, 85, 247, 0.15)" />
+    </linearGradient>
+
+    <!-- Card Border & Glass Gradients -->
+    <linearGradient id="card-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.25)" />
+      <stop offset="50%" stop-color="rgba(56, 189, 248, 0.35)" />
+      <stop offset="100%" stop-color="rgba(168, 85, 247, 0.2)" />
+    </linearGradient>
+
+    <linearGradient id="chart-wave-cyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.0" />
+    </linearGradient>
+
+    <linearGradient id="chart-wave-purple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0" />
+    </linearGradient>
+
+    <linearGradient id="bar-emerald-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+    <linearGradient id="bar-cyan-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="bar-indigo-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+    <linearGradient id="bar-purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#C084FC" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid-pattern" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255, 255, 255, 0.035)" stroke-width="1" />
+      <circle cx="0" cy="0" r="1" fill="rgba(255, 255, 255, 0.08)" />
+    </pattern>
+
+    <!-- Card Drop Shadow Filter -->
+    <filter id="card-shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <style>
+    /* CSS Styles and Keyframe Animations */
+    .bg-grid { opacity: 0.85; }
+    
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.06); }
+    }
+    .pulse-glow-1 {
+      animation: pulseGlow 7s ease-in-out infinite alternate;
+      transform-origin: 250px 150px;
+    }
+    .pulse-glow-2 {
+      animation: pulseGlow 8s ease-in-out 1.5s infinite alternate;
+      transform-origin: 900px 180px;
+    }
+
+    @keyframes liveBeacon {
+      0% { r: 3; opacity: 1; }
+      70% { r: 8; opacity: 0; }
+      100% { r: 8; opacity: 0; }
+    }
+    .beacon-ring {
+      animation: liveBeacon 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+
+    @keyframes dashMove {
+      to { stroke-dashoffset: -40; }
+    }
+    .stream-line {
+      stroke-dasharray: 6 4;
+      animation: dashMove 2.5s linear infinite;
+    }
+
+    @keyframes sparkFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+    .float-card {
+      animation: sparkFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes shimmerBar {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; filter: brightness(1.25); }
+    }
+    .bar-anim {
+      animation: shimmerBar 3s ease-in-out infinite;
+    }
+
+    @keyframes nodePing {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+    .node-pulse {
+      transform-origin: center;
+      animation: nodePing 2.5s ease-in-out infinite;
+    }
+
+    .font-sans {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .font-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    }
+  </style>
+
+  <!-- Base Canvas Background -->
+  <rect width="1200" height="400" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Ambient Pulsing Glow Orbs -->
+  <circle cx="240" cy="140" r="280" fill="url(#glow-cyan)" class="pulse-glow-1" />
+  <circle cx="920" cy="180" r="320" fill="url(#glow-purple)" class="pulse-glow-2" />
+  <circle cx="600" cy="380" r="260" fill="url(#glow-emerald)" />
+
+  <!-- Background Tech Grid Pattern -->
+  <rect width="1200" height="400" rx="16" fill="url(#grid-pattern)" class="bg-grid" />
+
+  <!-- Top Accent Neon Stroke Line -->
+  <path d="M 30 1 L 1170 1" stroke="url(#title-grad)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+
+  <!-- Outer Boundary Border -->
+  <rect x="0.75" y="0.75" width="1198.5" height="398.5" rx="15.25" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5" />
+
+  <!-- ========================================================================= -->
+  <!-- LEFT HERO SECTION                                                         -->
+  <!-- ========================================================================= -->
+
+  <!-- Super Badge -->
+  <g transform="translate(50, 38)">
+    <rect width="320" height="30" rx="15" fill="url(#tag-badge-grad)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1" />
+    <circle cx="16" cy="15" r="4" fill="#38BDF8" />
+    <circle cx="16" cy="15" r="4" fill="#38BDF8" class="beacon-ring" />
+    <text x="30" y="19.5" class="font-sans" font-size="11" font-weight="700" fill="#38BDF8" letter-spacing="1">CURATED DEVELOPER DIRECTORY &amp; SDKs</text>
+  </g>
+
+  <!-- Main Hero Title -->
+  <text x="50" y="112" class="font-sans" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">Awesome Embedded</text>
+  <text x="50" y="152" class="font-sans" font-size="34" font-weight="800" fill="url(#title-grad)" letter-spacing="-0.5">Dashboard SDK &amp; Analytics</text>
+
+  <!-- Subtitle / Tagline -->
+  <text x="50" y="186" class="font-sans" font-size="14.5" font-weight="400" fill="#94A3B8">
+    A curated collection of Embedded BI, Dashboard SDKs, Headless Semantic
+  </text>
+  <text x="50" y="206" class="font-sans" font-size="14.5" font-weight="400" fill="#94A3B8">
+    Layers, Multi-Tenant Security &amp; Open-Source Analytics building blocks.
+  </text>
+
+  <!-- Feature Pills / Category Tags Row 1 -->
+  <g transform="translate(50, 230)">
+    <!-- Pill 1: React / Vue / JS -->
+    <g transform="translate(0, 0)">
+      <rect width="145" height="28" rx="6" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1" />
+      <text x="12" y="18" class="font-sans" font-size="11.5" font-weight="600" fill="#E2E8F0">⚛️ React / Vue / SDK</text>
+    </g>
+
+    <!-- Pill 2: Multi-Tenant & RLS -->
+    <g transform="translate(153, 0)">
+      <rect width="168" height="28" rx="6" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(168, 85, 247, 0.25)" stroke-width="1" />
+      <text x="12" y="18" class="font-sans" font-size="11.5" font-weight="600" fill="#E2E8F0">🔐 Multi-Tenant &amp; RLS</text>
+    </g>
+
+    <!-- Pill 3: Real-Time OLAP -->
+    <g transform="translate(329, 0)">
+      <rect width="165" height="28" rx="6" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1" />
+      <text x="12" y="18" class="font-sans" font-size="11.5" font-weight="600" fill="#E2E8F0">⚡ Real-Time OLAP / BI</text>
+    </g>
+  </g>
+
+  <!-- Feature Pills / Category Tags Row 2 -->
+  <g transform="translate(50, 266)">
+    <!-- Pill 4: Headless Semantics -->
+    <g transform="translate(0, 0)">
+      <rect width="160" height="28" rx="6" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1" />
+      <text x="12" y="18" class="font-sans" font-size="11.5" font-weight="600" fill="#E2E8F0">🧠 Headless Semantics</text>
+    </g>
+
+    <!-- Pill 5: 100% White-Label -->
+    <g transform="translate(168, 0)">
+      <rect width="155" height="28" rx="6" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(236, 72, 153, 0.25)" stroke-width="1" />
+      <text x="12" y="18" class="font-sans" font-size="11.5" font-weight="600" fill="#E2E8F0">🎨 100% White-Label</text>
+    </g>
+
+    <!-- Pill 6: SaaS & Open Source -->
+    <g transform="translate(331, 0)">
+      <rect width="163" height="28" rx="6" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(129, 140, 248, 0.25)" stroke-width="1" />
+      <text x="12" y="18" class="font-sans" font-size="11.5" font-weight="600" fill="#E2E8F0">🚀 SaaS &amp; Open Source</text>
+    </g>
+  </g>
+
+  <!-- Bottom Metric Highlights Box -->
+  <g transform="translate(50, 314)">
+    <rect width="494" height="48" rx="10" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    
+    <!-- Item 1 -->
+    <text x="18" y="22" class="font-sans" font-size="13" font-weight="700" fill="#F8FAFC">50+ Platforms &amp; SDKs</text>
+    <text x="18" y="37" class="font-sans" font-size="10.5" font-weight="500" fill="#64748B">Commercial &amp; Open-Source</text>
+    
+    <!-- Divider 1 -->
+    <line x1="175" y1="12" x2="175" y2="36" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+
+    <!-- Item 2 -->
+    <text x="192" y="22" class="font-sans" font-size="13" font-weight="700" fill="#38BDF8">JWT &amp; RLS Isolation</text>
+    <text x="192" y="37" class="font-sans" font-size="10.5" font-weight="500" fill="#64748B">Production Multi-Tenancy</text>
+
+    <!-- Divider 2 -->
+    <line x1="345" y1="12" x2="345" y2="36" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+
+    <!-- Item 3 -->
+    <text x="362" y="22" class="font-sans" font-size="13" font-weight="700" fill="#10B981">Zero Per-Seat Tax</text>
+    <text x="362" y="37" class="font-sans" font-size="10.5" font-weight="500" fill="#64748B">Modern Composable BI</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- RIGHT INTERACTIVE MOCKUP DASHBOARD CARD                                   -->
+  <!-- ========================================================================= -->
+  <g transform="translate(580, 28)" class="float-card">
+    <!-- Main Floating Glassmorphic Container -->
+    <rect width="570" height="344" rx="14" fill="#0D1527" fill-opacity="0.88" stroke="url(#card-border)" stroke-width="1.2" filter="url(#card-shadow)" />
+
+    <!-- Top Window Title Bar -->
+    <g transform="translate(18, 16)">
+      <!-- Window Traffic Dots -->
+      <circle cx="4" cy="8" r="4.5" fill="#EF4444" opacity="0.85" />
+      <circle cx="18" cy="8" r="4.5" fill="#F59E0B" opacity="0.85" />
+      <circle cx="32" cy="8" r="4.5" fill="#10B981" opacity="0.85" />
+
+      <!-- Code Snippet / Title -->
+      <text x="50" y="12" class="font-mono" font-size="11.5" fill="#64748B">&lt;EmbeddedDashboard tenantId="tenant_94a" /&gt;</text>
+
+      <!-- Live Pulsing Tag -->
+      <g transform="translate(470, 0)">
+        <rect width="52" height="18" rx="9" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1" />
+        <circle cx="9" cy="9" r="3" fill="#10B981" />
+        <circle cx="9" cy="9" r="3" fill="#10B981" class="beacon-ring" />
+        <text x="17" y="12.5" class="font-sans" font-size="9" font-weight="700" fill="#10B981">LIVE</text>
+      </g>
+    </g>
+
+    <!-- Divider under window bar -->
+    <line x1="0" y1="42" x2="570" y2="42" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1" />
+
+    <!-- Mini KPI Stat Cards (3 Columns) -->
+    <g transform="translate(16, 54)">
+      <!-- KPI 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="170" height="58" rx="8" fill="rgba(15, 23, 42, 0.7)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+        <text x="10" y="16" class="font-sans" font-size="9" font-weight="700" fill="#64748B" letter-spacing="0.5">QUERY THROUGHPUT</text>
+        <text x="10" y="38" class="font-sans" font-size="16" font-weight="800" fill="#FFFFFF">38,410<tspan font-size="11" font-weight="500" fill="#94A3B8"> /s</tspan></text>
+        <text x="10" y="50" class="font-sans" font-size="9.5" font-weight="700" fill="#10B981">▲ +24.8% <tspan font-weight="500" fill="#64748B">vs last wk</tspan></text>
+      </g>
+
+      <!-- KPI 2 -->
+      <g transform="translate(182, 0)">
+        <rect width="170" height="58" rx="8" fill="rgba(15, 23, 42, 0.7)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+        <text x="10" y="16" class="font-sans" font-size="9" font-weight="700" fill="#64748B" letter-spacing="0.5">P95 RLS LATENCY</text>
+        <text x="10" y="38" class="font-sans" font-size="16" font-weight="800" fill="#38BDF8">4.2<tspan font-size="11" font-weight="500" fill="#94A3B8"> ms</tspan></text>
+        <text x="10" y="50" class="font-sans" font-size="9.5" font-weight="600" fill="#38BDF8">⚡ DuckDB + Cache</text>
+      </g>
+
+      <!-- KPI 3 -->
+      <g transform="translate(364, 0)">
+        <rect width="174" height="58" rx="8" fill="rgba(15, 23, 42, 0.7)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+        <text x="10" y="16" class="font-sans" font-size="9" font-weight="700" fill="#64748B" letter-spacing="0.5">ROW-LEVEL SECURITY</text>
+        <text x="10" y="38" class="font-sans" font-size="15" font-weight="800" fill="#C084FC">Tenant-Isolated</text>
+        <text x="10" y="50" class="font-sans" font-size="9.5" font-weight="600" fill="#A855F7">🔒 100% Signed JWT</text>
+      </g>
+    </g>
+
+    <!-- Main Chart Area & Side Metrics -->
+    <g transform="translate(16, 122)">
+      <!-- Left: Interactive Multi-Series Area Chart Widget -->
+      <g transform="translate(0, 0)">
+        <rect width="344" height="206" rx="9" fill="rgba(11, 18, 33, 0.85)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+
+        <!-- Chart Title & Legends -->
+        <text x="14" y="22" class="font-sans" font-size="11.5" font-weight="700" fill="#E2E8F0">Embedded Event Stream</text>
+        
+        <!-- Legend 1 -->
+        <circle cx="218" cy="18" r="3.5" fill="#38BDF8" />
+        <text x="226" y="21.5" class="font-sans" font-size="9.5" font-weight="600" fill="#94A3B8">Tenant-A</text>
+        
+        <!-- Legend 2 -->
+        <circle cx="282" cy="18" r="3.5" fill="#A855F7" />
+        <text x="290" y="21.5" class="font-sans" font-size="9.5" font-weight="600" fill="#94A3B8">Tenant-B</text>
+
+        <!-- Chart Canvas & Grid Lines -->
+        <g transform="translate(14, 38)">
+          <!-- Horizontal Grid Lines -->
+          <line x1="0" y1="25" x2="316" y2="25" stroke="rgba(255, 255, 255, 0.05)" stroke-dasharray="3 3" />
+          <line x1="0" y1="65" x2="316" y2="65" stroke="rgba(255, 255, 255, 0.05)" stroke-dasharray="3 3" />
+          <line x1="0" y1="105" x2="316" y2="105" stroke="rgba(255, 255, 255, 0.05)" stroke-dasharray="3 3" />
+          <line x1="0" y1="140" x2="316" y2="140" stroke="rgba(255, 255, 255, 0.08)" />
+
+          <!-- Series 2 (Purple Wave Area & Sparkline) -->
+          <path d="M 0 110 Q 40 85 80 100 T 160 65 T 240 75 T 316 35 L 316 140 L 0 140 Z" fill="url(#chart-wave-purple)" />
+          <path d="M 0 110 Q 40 85 80 100 T 160 65 T 240 75 T 316 35" fill="none" stroke="#A855F7" stroke-width="2" stroke-linecap="round" />
+
+          <!-- Series 1 (Cyan Wave Area & Sparkline) -->
+          <path d="M 0 95 Q 40 50 80 60 T 160 30 T 240 45 T 316 15 L 316 140 L 0 140 Z" fill="url(#chart-wave-cyan)" />
+          <path d="M 0 95 Q 40 50 80 60 T 160 30 T 240 45 T 316 15" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" />
+
+          <!-- Dynamic Animated Streamline Effect -->
+          <path d="M 0 95 Q 40 50 80 60 T 160 30 T 240 45 T 316 15" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" class="stream-line" opacity="0.6" />
+
+          <!-- Data Nodes -->
+          <circle cx="80" cy="60" r="3.5" fill="#38BDF8" stroke="#0B132B" stroke-width="1.5" />
+          <circle cx="160" cy="30" r="4" fill="#38BDF8" stroke="#0B132B" stroke-width="1.5" class="node-pulse" />
+          <circle cx="240" cy="45" r="3.5" fill="#38BDF8" stroke="#0B132B" stroke-width="1.5" />
+          <circle cx="316" cy="15" r="4" fill="#38BDF8" stroke="#0B132B" stroke-width="1.5" />
+
+          <!-- Interactive Hover Tooltip Simulation -->
+          <g transform="translate(145, -5)">
+            <rect width="84" height="26" rx="5" fill="#1E293B" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1" />
+            <text x="8" y="16.5" class="font-sans" font-size="10" font-weight="700" fill="#38BDF8">148.2k <tspan font-weight="500" fill="#94A3B8">req/m</tspan></text>
+            <line x1="42" y1="26" x2="42" y2="35" stroke="#38BDF8" stroke-width="1" stroke-dasharray="2 2" />
+          </g>
+
+          <!-- X-Axis Labels -->
+          <text x="2" y="154" class="font-sans" font-size="9" fill="#475569">10:00</text>
+          <text x="75" y="154" class="font-sans" font-size="9" fill="#475569">10:15</text>
+          <text x="155" y="154" class="font-sans" font-size="9" fill="#475569">10:30</text>
+          <text x="235" y="154" class="font-sans" font-size="9" fill="#475569">10:45</text>
+          <text x="295" y="154" class="font-sans" font-size="9" fill="#475569">11:00</text>
+        </g>
+      </g>
+
+      <!-- Right: Composable Stack Health & Features List -->
+      <g transform="translate(356, 0)">
+        <rect width="182" height="206" rx="9" fill="rgba(11, 18, 33, 0.85)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+        
+        <text x="12" y="22" class="font-sans" font-size="11.5" font-weight="700" fill="#E2E8F0">SDK Architecture</text>
+        
+        <!-- Stack Item 1: Semantic Layer -->
+        <g transform="translate(12, 36)">
+          <text x="0" y="10" class="font-sans" font-size="10" font-weight="600" fill="#94A3B8">Semantic Layer (dbt/Cube)</text>
+          <text x="156" y="10" text-anchor="end" class="font-sans" font-size="9.5" font-weight="700" fill="#10B981">99.9%</text>
+          <rect y="16" width="158" height="5" rx="2.5" fill="rgba(255, 255, 255, 0.08)" />
+          <rect y="16" width="152" height="5" rx="2.5" fill="url(#bar-emerald-grad)" class="bar-anim" />
+        </g>
+
+        <!-- Stack Item 2: OLAP Engine -->
+        <g transform="translate(12, 74)">
+          <text x="0" y="10" class="font-sans" font-size="10" font-weight="600" fill="#94A3B8">OLAP / ClickHouse / DuckDB</text>
+          <text x="156" y="10" text-anchor="end" class="font-sans" font-size="9.5" font-weight="700" fill="#38BDF8">94.6%</text>
+          <rect y="16" width="158" height="5" rx="2.5" fill="rgba(255, 255, 255, 0.08)" />
+          <rect y="16" width="146" height="5" rx="2.5" fill="url(#bar-cyan-grad)" class="bar-anim" />
+        </g>
+
+        <!-- Stack Item 3: Visual SDK -->
+        <g transform="translate(12, 112)">
+          <text x="0" y="10" class="font-sans" font-size="10" font-weight="600" fill="#94A3B8">Native UI Embed SDKs</text>
+          <text x="156" y="10" text-anchor="end" class="font-sans" font-size="9.5" font-weight="700" fill="#818CF8">98.2%</text>
+          <rect y="16" width="158" height="5" rx="2.5" fill="rgba(255, 255, 255, 0.08)" />
+          <rect y="16" width="150" height="5" rx="2.5" fill="url(#bar-indigo-grad)" class="bar-anim" />
+        </g>
+
+        <!-- Stack Item 4: Multi-Tenant RLS -->
+        <g transform="translate(12, 150)">
+          <text x="0" y="10" class="font-sans" font-size="10" font-weight="600" fill="#94A3B8">Multi-Tenant JWT Auth</text>
+          <text x="156" y="10" text-anchor="end" class="font-sans" font-size="9.5" font-weight="700" fill="#C084FC">100%</text>
+          <rect y="16" width="158" height="5" rx="2.5" fill="rgba(255, 255, 255, 0.08)" />
+          <rect y="16" width="158" height="5" rx="2.5" fill="url(#bar-purple-grad)" class="bar-anim" />
+        </g>
+
+        <!-- Bottom Tag pill in stack box -->
+        <g transform="translate(12, 180)">
+          <rect width="158" height="18" rx="4" fill="rgba(255, 255, 255, 0.04)" />
+          <text x="79" y="12.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#64748B">Zero Vendor Lock-In</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
