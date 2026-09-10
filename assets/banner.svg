@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19">
+        <animate attributeName="stop-color" values="#0b0f19;#131b2e;#0b0f19" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#111827">
+        <animate attributeName="stop-color" values="#111827;#1e1b4b;#111827" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#030712">
+        <animate attributeName="stop-color" values="#030712;#0f172a;#030712" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="cyanPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)" />
+    </linearGradient>
+
+    <linearGradient id="barGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <linearGradient id="barGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+
+    <linearGradient id="barGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; }
+    .subtitle-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 400; }
+    .mono-text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 13px; font-weight: 600; }
+    
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes floatFast {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+    @keyframes dashMove {
+      to { stroke-dashoffset: -40; }
+    }
+    
+    .floating-card-1 { animation: floatSlow 6s ease-in-out infinite; }
+    .floating-card-2 { animation: floatFast 5s ease-in-out infinite 1s; }
+    .floating-card-3 { animation: floatSlow 7s ease-in-out infinite 2s; }
+    .pulse-orb { animation: pulseGlow 4s ease-in-out infinite; }
+    .animated-dash { stroke-dasharray: 6, 6; animation: dashMove 3s linear infinite; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="400" fill="url(#bgGrad)" rx="16" />
+
+  <!-- Background Grid Lines -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="80" x2="1200" y2="80" />
+    <line x1="0" y1="160" x2="1200" y2="160" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="320" x2="1200" y2="320" />
+    <line x1="200" y1="0" x2="200" y2="400" />
+    <line x1="400" y1="0" x2="400" y2="400" />
+    <line x1="600" y1="0" x2="600" y2="400" />
+    <line x1="800" y1="0" x2="800" y2="400" />
+    <line x1="1000" y1="0" x2="1000" y2="400" />
+  </g>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="200" cy="120" r="140" fill="#3b82f6" opacity="0.15" filter="url(#softGlow)" class="pulse-orb" />
+  <circle cx="1000" cy="280" r="160" fill="#8b5cf6" opacity="0.12" filter="url(#softGlow)" class="pulse-orb" />
+  <circle cx="700" cy="100" r="100" fill="#06b6d4" opacity="0.1" filter="url(#softGlow)" class="pulse-orb" />
+
+  <!-- Left Side: Title & Info -->
+  <g transform="translate(80, 80)">
+    <!-- Category Badge -->
+    <g transform="translate(0, 0)">
+      <rect width="210" height="30" rx="15" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1" />
+      <circle cx="15" cy="15" r="4" fill="#38bdf8">
+        <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="28" y="20" fill="#38bdf8" class="mono-text">CURATED AWESOME LIST</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="85" fill="#ffffff" font-size="44" class="title-text" letter-spacing="-0.5">
+      Awesome <tspan fill="url(#cyanPurple)">Embedded Dashboard</tspan>
+    </text>
+    <text x="0" y="135" fill="#f8fafc" font-size="42" class="title-text" letter-spacing="-0.5">
+      &amp; Analytics SDKs 📊
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="175" fill="#94a3b8" font-size="16" class="subtitle-text">
+      Open-Source Platforms • Headless BI • Semantic Layers • SaaS SDKs
+    </text>
+
+    <!-- Feature Pills -->
+    <g transform="translate(0, 205)">
+      <!-- Pill 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="130" height="28" rx="6" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" />
+        <text x="65" y="18" fill="#e2e8f0" font-size="12" class="mono-text" text-anchor="middle">⚡ Multi-Tenancy</text>
+      </g>
+      <!-- Pill 2 -->
+      <g transform="translate(140, 0)">
+        <rect width="130" height="28" rx="6" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" />
+        <text x="65" y="18" fill="#e2e8f0" font-size="12" class="mono-text" text-anchor="middle">🔒 Row-Level RLS</text>
+      </g>
+      <!-- Pill 3 -->
+      <g transform="translate(280, 0)">
+        <rect width="130" height="28" rx="6" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" />
+        <text x="65" y="18" fill="#e2e8f0" font-size="12" class="mono-text" text-anchor="middle">🎨 White-Label</text>
+      </g>
+      <!-- Pill 4 -->
+      <g transform="translate(420, 0)">
+        <rect width="130" height="28" rx="6" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" />
+        <text x="65" y="18" fill="#e2e8f0" font-size="12" class="mono-text" text-anchor="middle">🧩 Headless API</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Side: Interactive Floating Dashboard Preview Visuals -->
+  <!-- Card 1: Main Metric & Bar Chart Card -->
+  <g class="floating-card-1" transform="translate(710, 60)">
+    <rect width="410" height="220" rx="14" fill="url(#cardGrad)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" backdrop-filter="blur(16px)" />
+    
+    <!-- Window Controls -->
+    <circle cx="20" cy="20" r="4.5" fill="#ef4444" opacity="0.8" />
+    <circle cx="35" cy="20" r="4.5" fill="#f59e0b" opacity="0.8" />
+    <circle cx="50" cy="20" r="4.5" fill="#10b981" opacity="0.8" />
+    <text x="75" y="24" fill="#64748b" font-size="11" class="mono-text">analytics-sdk.embed()</text>
+
+    <!-- KPI Row inside card -->
+    <g transform="translate(20, 42)">
+      <text x="0" y="15" fill="#94a3b8" font-size="11" class="subtitle-text">Total Query Throughput</text>
+      <text x="0" y="40" fill="#ffffff" font-size="22" class="title-text">2,845,920 <tspan fill="#10b981" font-size="12">+34.8%</tspan></text>
+      <text x="240" y="15" fill="#94a3b8" font-size="11" class="subtitle-text">P95 Latency</text>
+      <text x="240" y="40" fill="#38bdf8" font-size="22" class="title-text">14.2ms</text>
+    </g>
+
+    <!-- Animated Chart Bars -->
+    <g transform="translate(20, 110)">
+      <!-- Bar 1 -->
+      <rect x="10" y="45" width="22" height="45" rx="4" fill="url(#barGrad1)">
+        <animate attributeName="height" values="45;75;45" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="45;15;45" dur="4s" repeatCount="indefinite" />
+      </rect>
+      <!-- Bar 2 -->
+      <rect x="42" y="30" width="22" height="60" rx="4" fill="url(#barGrad1)">
+        <animate attributeName="height" values="60;35;60" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="30;55;30" dur="4s" repeatCount="indefinite" />
+      </rect>
+      <!-- Bar 3 -->
+      <rect x="74" y="20" width="22" height="70" rx="4" fill="url(#barGrad2)">
+        <animate attributeName="height" values="70;85;70" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="20;5;20" dur="4s" repeatCount="indefinite" />
+      </rect>
+      <!-- Bar 4 -->
+      <rect x="106" y="40" width="22" height="50" rx="4" fill="url(#barGrad1)">
+        <animate attributeName="height" values="50;70;50" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="40;20;40" dur="4s" repeatCount="indefinite" />
+      </rect>
+      <!-- Bar 5 -->
+      <rect x="138" y="10" width="22" height="80" rx="4" fill="url(#barGrad2)">
+        <animate attributeName="height" values="80;50;80" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="10;40;10" dur="4s" repeatCount="indefinite" />
+      </rect>
+      <!-- Bar 6 -->
+      <rect x="170" y="25" width="22" height="65" rx="4" fill="url(#barGrad3)">
+        <animate attributeName="height" values="65;85;65" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="25;5;25" dur="4s" repeatCount="indefinite" />
+      </rect>
+      <!-- Bar 7 -->
+      <rect x="202" y="35" width="22" height="55" rx="4" fill="url(#barGrad3)">
+        <animate attributeName="height" values="55;75;55" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="35;15;35" dur="4s" repeatCount="indefinite" />
+      </rect>
+      <!-- Bar 8 -->
+      <rect x="234" y="15" width="22" height="75" rx="4" fill="url(#barGrad1)">
+        <animate attributeName="height" values="75;40;75" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y" values="15;50;15" dur="4s" repeatCount="indefinite" />
+      </rect>
+
+      <!-- Sparkline Overlay -->
+      <path d="M 21 45 Q 85 10, 149 10 T 245 15" fill="none" stroke="#38bdf8" stroke-width="3" filter="url(#glow)" class="animated-dash" />
+    </g>
+  </g>
+
+  <!-- Card 2: Floating Mini Live Stream Card -->
+  <g class="floating-card-2" transform="translate(640, 240)">
+    <rect width="220" height="95" rx="10" fill="#0f172a" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1" filter="url(#glow)" />
+    <g transform="translate(15, 15)">
+      <circle cx="8" cy="8" r="4" fill="#22c55e">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" />
+      </circle>
+      <text x="20" y="12" fill="#e2e8f0" font-size="11" class="mono-text">REAL-TIME OLAP</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">Active Tenants</text>
+      <text x="0" y="60" fill="#38bdf8" font-size="18" class="title-text">14,280 <tspan fill="#64748b" font-size="10">nodes</tspan></text>
+    </g>
+  </g>
+
+  <!-- Card 3: Floating Security / Guest Token Pill -->
+  <g class="floating-card-3" transform="translate(940, 260)">
+    <rect width="180" height="75" rx="10" fill="#1e1b4b" stroke="rgba(168, 85, 247, 0.4)" stroke-width="1" filter="url(#glow)" />
+    <g transform="translate(15, 15)">
+      <text x="0" y="12" fill="#c084fc" font-size="11" class="mono-text">🛡️ JWT AUTH / RLS</text>
+      <text x="0" y="34" fill="#cbd5e1" font-size="10">Tenant ID: acme_corp</text>
+      <text x="0" y="48" fill="#34d399" font-size="10" class="mono-text">✓ Token Verified</text>
+    </g>
+  </g>
+</svg>
