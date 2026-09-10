@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
   <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-  <a href="https://github.com/ishandutta2007/Awesome-Embedded-Dashboard-SDK/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Embedded-Dashboard-SDK?style=flat-square&logo=github&color=gold" alt="GitHub Stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Embedded-Dashboard-SDK/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Embedded-Dashboard-SDK?style=flat-square&logo=github&color=gold" alt="GitHub_Stars" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Embedded-Dashboard-SDK/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Embedded-Dashboard-SDK?style=flat-square&logo=github&color=blue" alt="GitHub Forks" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Embedded-Dashboard-SDK/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Embedded-Dashboard-SDK/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT" /></a>
@@ -90,9 +90,9 @@
 > ⭐ **The Open-Source Embedded Ecosystem:**
 > Self-hosting an open-source BI platform or composing an embedded analytics pipeline from open-source semantic layers, visualization grammars, and OLAP databases offers complete source-code ownership, no per-seat license taxes, and zero vendor lock-in.
 
-*The table below is sorted by **GitHub Stars** in descending order:*
+*The table below is sorted by **GitHub_Stars** in descending order:*
 
-| Project | GitHub Stars Badge | Description | Primary Category | License |
+| Project | GitHub_Stars_Badge | Description | Primary Category | License |
 | :--- | :--- | :--- | :--- | :--- |
 | [D3.js](https://github.com/d3/d3) | [![Stars](https://img.shields.io/github/stars/d3/d3?style=social&color=white)](https://github.com/d3/d3/stargazers) | Low-level JavaScript library for visualizing data using HTML, SVG, and CSS; foundation of modern web charting. | Visualization Framework | ISC |
 | [Chart.js](https://github.com/chartjs/Chart.js) | [![Stars](https://img.shields.io/github/stars/chartjs/Chart.js?style=social&color=white)](https://github.com/chartjs/Chart.js/stargazers) | Simple yet flexible HTML5 Canvas charting library for lightweight, responsive embedded dashboard widgets. | Charting Library | MIT |
